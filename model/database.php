@@ -1,9 +1,9 @@
 <?php
 //database connection details
-$host = 'testdb.cqa9dcydvtr5.us-east-1.rds.amazonaws.com';
+$host = 'cfmysqldb.cqa9dcydvtr5.us-east-1.rds.amazonaws.com';
 $user = 'admin';
-$password = 'RBC-Pr!nT3r';
-$database = 'test_db';
+$password = 'Cupcakes1234';
+$database = 'gorgeous_cupcakes';
 
 //connect to database with a try/catch statement
 //if the connection is not successful display the error message via database_error.php
