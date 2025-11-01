@@ -1,17 +1,17 @@
 <?php
-//database connection details
 $host = 'cfmysqldb.cqa9dcydvtr5.us-east-1.rds.amazonaws.com';
 $user = 'admin';
 $password = 'Cupcakes1234';
 $database = 'gorgeous_cupcakes';
 
-//connect to database with a try/catch statement
-//if the connection is not successful display the error message via database_error.php
-//the PDOException class represents the error raised by PDO
-//the PDO error is stored in the variable $e
-//the PDO error is returned as a string via the getMessage() function
 try {
-	$conn = new PDO("mysql:host=$host;dbname=$database", $user, $password);
+	$dsn = "mysql:host=$host;dbname=$database;charset=utf8mb4";
+	$options = [
+		PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+		PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+		PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4 COLLATE utf8mb4_general_ci"
+	];
+	$conn = new PDO($dsn, $user, $password, $options);
 } catch (PDOException $e) {
 	$error_message = $e->getMessage();
 	include('../view/database_error.php');
